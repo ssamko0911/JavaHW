@@ -32,4 +32,14 @@ public class Monitor extends Device {
         return "Monitor: manufacturer =" + getManufacturer() + ", price=" + getPrice()
                 + ", serialNumber=" + getSerialNumber() + ", X=" + getResolutionX() + ",Y=" + getResolutionY();
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

@@ -26,4 +26,14 @@ public class EthernetAdapter extends Device {
     public void setMac(String mac) {
         this.mac = mac;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

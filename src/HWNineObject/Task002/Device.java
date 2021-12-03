@@ -41,4 +41,14 @@ public class Device {
         return "Device: manufacturer =" + getManufacturer() + " price=" + getPrice()
                 + ", serialNumber=" + getSerialNumber();
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
