@@ -35,4 +35,10 @@ public class Device {
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Device: manufacturer =" + getManufacturer() + " price=" + getPrice()
+                + ", serialNumber=" + getSerialNumber();
+    }
 }

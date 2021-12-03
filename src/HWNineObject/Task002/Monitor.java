@@ -26,4 +26,10 @@ public class Monitor extends Device {
     public void setResolutionY(int resolutionY) {
         this.resolutionY = resolutionY;
     }
+
+    @Override
+    public String toString() {
+        return "Monitor: manufacturer =" + getManufacturer() + ", price=" + getPrice()
+                + ", serialNumber=" + getSerialNumber() + ", X=" + getResolutionX() + ",Y=" + getResolutionY();
+    }
 }
