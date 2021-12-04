@@ -22,12 +22,8 @@ public class Run {
             prices[i] = new Price(titleOfItem, titleOfShop, price);
         }
 
-        Arrays.sort(prices, new Comparator<>() {
-            @Override
-            public int compare(Price o1, Price o2) {
-                return o1.titleOfShop.compareTo(o2.titleOfShop);
-            }
-        });
+        PriceComparator comparator = new PriceComparator();
+        Arrays.sort(prices, comparator);
 
         for (Price somePrice : prices) {
             System.out.println(somePrice);
@@ -43,15 +39,11 @@ public class Run {
             }
         }
         try {
-            if (!isInList) throw new Exception();
+            if (!isInList) {
+                throw new Exception();
+            }
         } catch (Exception exception) {
             System.err.println("Такого магазина нет в списке!");
         }
     }
 }
-
-
-
-
-
-
