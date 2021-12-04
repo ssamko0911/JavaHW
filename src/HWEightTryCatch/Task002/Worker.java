@@ -1,5 +1,7 @@
 package HWEightTryCatch.Task002;
 
+import java.util.Comparator;
+
 public class Worker {
     private String lastFirstName;
     private String jobTitle;
@@ -41,3 +43,4 @@ public class Worker {
                 + "; 3) Год приёма на работу: " + this.yearOfStartWorking + " г.";
     }
 }
+

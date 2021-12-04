@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Run {
 
     public static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    public static final int YEAR_OF_ESTABLISHMENT = 2010; // допустим, 2010 год - год основания предприятия.
+    public static final int CURRENT_YEAR = 2021;
 
     public static void main(String[] args) throws IOException {
         Worker[] workers = new Worker[5];
@@ -21,26 +22,23 @@ public class Run {
             System.out.println("Введите год поступления на работу: ");
             int yearOfStartWorking = Integer.parseInt(in.readLine());
             try {
-                if (yearOfStartWorking < 2010) throw new Exception(); // допустим, 2010 год - год основания предприятия.
+                if (yearOfStartWorking < YEAR_OF_ESTABLISHMENT) {
+                    throw new Exception();
+                }
             } catch (Exception e) {
                 System.err.println("Указанный год не возможен. Предприятией функционирует с 2010 года.");
-                yearOfStartWorking = 2010;
+                yearOfStartWorking = YEAR_OF_ESTABLISHMENT;
             }
             workers[i] = new Worker(lastFirstName, jobTitle, yearOfStartWorking);
         }
 
-        Arrays.sort(workers, new Comparator<>() {
-            @Override
-            public int compare(Worker o1, Worker o2) {
-                return o1.getLastFirstName().compareTo(o2.getLastFirstName());
-            }
-        });
+        WorkerComparator comparator = new WorkerComparator();
+        Arrays.sort(workers, comparator);
 
         for (Worker worker : workers) {
             System.out.println(worker.toString());
         }
 
-        final int CURRENT_YEAR = 2021;
         System.out.println("\nВведите стаж: ");
         int receivedNumberOfYear = Integer.parseInt(in.readLine());
         for (Worker worker : workers) {
@@ -51,3 +49,5 @@ public class Run {
         }
     }
 }
+
+
