@@ -2,7 +2,7 @@ package HWEightTryCatch.Task002;
 
 import java.util.Comparator;
 
-public class Worker {
+public class Worker implements Comparator<Worker> {
     private String lastFirstName;
     private String jobTitle;
     private int yearOfStartWorking;
@@ -41,6 +41,11 @@ public class Worker {
     public String toString() {
         return "\nДанные по сотруднику: 1) ФИО: " + this.lastFirstName + "; 2) Должность: " + this.jobTitle
                 + "; 3) Год приёма на работу: " + this.yearOfStartWorking + " г.";
+    }
+
+    @Override
+    public int compare(Worker o1, Worker o2) {
+        return o1.getLastFirstName().compareTo(o2.getLastFirstName());
     }
 }
 

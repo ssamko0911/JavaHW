@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.Collector;
 
 public class Run {
 
@@ -32,8 +34,14 @@ public class Run {
             workers[i] = new Worker(lastFirstName, jobTitle, yearOfStartWorking);
         }
 
-        WorkerComparator comparator = new WorkerComparator();
-        Arrays.sort(workers, comparator);
+        Comparator <Worker> lastFirstName = new Comparator<Worker>() {
+            @Override
+            public int compare(Worker o1, Worker o2) {
+                return o1.getLastFirstName().compareTo(o2.getLastFirstName());
+            }
+        };
+
+        Arrays.sort(workers, lastFirstName);
 
         for (Worker worker : workers) {
             System.out.println(worker.toString());

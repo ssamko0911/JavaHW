@@ -1,6 +1,8 @@
 package HWEightTryCatch.Task003;
 
-public class Price {
+import java.util.Comparator;
+
+public class Price implements Comparator<Price> {
     public String titleOfItem;
     public String titleOfShop;
     public double price;
@@ -14,5 +16,10 @@ public class Price {
     @Override
     public String toString() {
         return "Асортимент магазина " + titleOfShop + ": товар - " + titleOfItem + ", цена - " + price + " грн.";
+    }
+
+    @Override
+    public int compare(Price o1, Price o2) {
+        return o1.titleOfShop.compareTo(o2.titleOfShop);
     }
 }
