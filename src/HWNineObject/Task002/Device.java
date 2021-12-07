@@ -1,5 +1,7 @@
 package HWNineObject.Task002;
 
+import java.util.Objects;
+
 public class Device {
 
     private String manufacturer;
@@ -44,11 +46,20 @@ public class Device {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hashCode(manufacturer);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != getClass()) {
+            return false;
+        }
+        Device device = (Device) obj;
+        return device.manufacturer == this.manufacturer
+                && device.price == this.price
+                && device.serialNumber == this.serialNumber;
     }
 }
