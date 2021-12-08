@@ -46,7 +46,7 @@ public class Device {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(manufacturer);
+        return Objects.hash(manufacturer, price, serialNumber);
     }
 
     @Override

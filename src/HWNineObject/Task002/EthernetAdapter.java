@@ -1,5 +1,7 @@
 package HWNineObject.Task002;
 
+import java.util.Objects;
+
 public class EthernetAdapter extends Device {
 
     private int speed;
@@ -29,7 +31,7 @@ public class EthernetAdapter extends Device {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(super.hashCode(), speed, mac);
     }
 
     @Override

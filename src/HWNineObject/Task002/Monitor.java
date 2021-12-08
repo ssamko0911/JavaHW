@@ -1,5 +1,7 @@
 package HWNineObject.Task002;
 
+import java.util.Objects;
+
 public class Monitor extends Device {
 
     private int resolutionX;
@@ -35,7 +37,7 @@ public class Monitor extends Device {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(super.hashCode(), resolutionX, resolutionY);
     }
 
     @Override
